@@ -53,10 +53,10 @@ In this project, you will demonstrate your mastery of these skills by creating *
 
 ### Basic Routing
 > *Build the needed utilities to restrict access to private routes.*
-* [ ] Build a `Route` component that renders rendering `Login.js` to the path `/`.
-* [ ] Build a `Route` component that renders rendering `Login.js` to the path `/login`.
-* [ ] Build a `Route` component that renders rendering `View.js` to the path `/view`.
-* [ ] Build a `Route` component that renders rendering `Logout.js` to the path `/logout`.
+* [x] Build a `Route` component that renders rendering `Login.js` to the path `/`.
+* [x] Build a `Route` component that renders rendering `Login.js` to the path `/login`.
+* [x] Build a `Route` component that renders rendering `View.js` to the path `/view`.
+* [x] Build a `Route` component that renders rendering `Logout.js` to the path `/logout`.
 
 ### Login Authentication
 > *Build a login form to authenticate your users along with all the components and utilities needed to support authentication.*
@@ -107,7 +107,7 @@ In this project, you will demonstrate your mastery of these skills by creating *
 * It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
 ## Submission format
-* [ ] Submit via Codegrade by commiting and pushing any new changes to **your main branch.**
+* [x] Submit via Codegrade by commiting and pushing any new changes to **your main branch.**
 * [ ] Check Codegrade before the deadline to compare its results against your local tests.
 * [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 * [ ] New commits will be evaluated by Codegrade if pushed before the sprint challenge deadline.
@@ -117,9 +117,17 @@ In this project, you will demonstrate your mastery of these skills by creating *
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. Explain what a token is used for.
+    - Tokens like the JWT JSON web tokens are used to encrypt data for secure transfer between local hosts and servers. We have learned to used the for Authentication. 
 
 2. What steps can you take in your web apps to keep your data secure?
+    - The use of Tokens with Private Routes is what I recall learning so far.  By first Authenticating with tokens and then authorization with private routes we can "secure" the data accessible to our user(s). 
 
 3. Describe how web servers work.
+    - Servers are both hardware with the software to run them. They can be a single simple small machine or thousands in a farm. They provide the context for housing data. Local hosts send C.R.U.D Creat, Read, Update, Delete "requests" to obtain or manipulate the data. 
 
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+    - Create to POST
+    Read to GET
+    Update to PUT
+    Delete to DELETE
+    Personally I find more often than not I will "Read/Get" long before POST, PUT, or DELETE. 
