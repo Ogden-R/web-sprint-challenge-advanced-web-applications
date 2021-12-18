@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axiosWithAuth from './../utils/axiosWithAuth';
 
 const initialArticle = {
     id:"",
@@ -13,6 +14,18 @@ const EditForm = (props)=> {
     const [article, setArticle]  = useState(initialArticle);
     const {handleEdit, handleEditCancel, editId} = props;
 
+    useEffect(() => {
+        axiosWithAuth()
+            .get(`http://localhost:5000/api/articles/${editId}`)
+            .then(res => {
+                setArticle(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
+
     const handleChange = (e)=> {
         setArticle({
             ...article,
@@ -25,7 +38,6 @@ const EditForm = (props)=> {
         handleEdit(article);
     }
 
-
     const handleCancel = (e) => {
         e.preventDefault();
         handleEditCancel();
@@ -34,19 +46,19 @@ const EditForm = (props)=> {
     return(<FormContainer onSubmit={handleSubmit}>
         <h3>Edit Article</h3>
         <div>
-            <label>Headline</label>
-            <input value={article.headline} id="headline" name="headline" onChange={handleChange}/>
+            <label>Headline:</label>
+            <input value={article.headline} id="headline" name="headline" data-testid="headlineInput" onChange={handleChange}/>
         </div>
         <div>
-            <label>Author</label>
+            <label>Author:</label>
             <input value={article.author} id="author" name="author" onChange={handleChange}/>
         </div>
         <div>
-            <label>Summary</label>
+            <label>Summary:</label>
             <input value={article.summary} id="summary" name="summary" onChange={handleChange}/>
         </div>
         <div>
-            <label>Body</label>
+            <label>Body:</label>
             <input value={article.body} id="body" name="body" onChange={handleChange}/>
         </div>
         <Button id="editButton">Edit Article</Button>
